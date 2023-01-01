@@ -41,4 +41,8 @@ return this.post<User>('auth/signup', payload)
     localStorage.setItem('user', JSON.stringify(user))
   }
 
+  signOut() {
+    localStorage.clear();
+  }
+
 }

@@ -6,17 +6,8 @@
     </a>
   </div>
 
-  <div class="nav-links">
-    <a routerLink="/auth/login" class="nav-link">
-      <span class="material-icons">person</span>
-      <p class="">Sign In</p>
-    </a>
-
-    <a routerLink="/auth/register" class="nav-link">
-      <span class="material-icons">person</span>
-      <p class="">Register</p>
-    </a>
-
+  <ng-container *ngIf="userIsAuthenticated; else notAuthenticated">
+    <div class="nav-links">
     <a class="nav-link">
       <span class="material-icons">dataset</span>
       <p class="">Products</p>
@@ -33,7 +24,32 @@
         </div>
       </div>
     </a>
-  </div>
+
+      <a routerLink="/auth/login" class="nav-link">
+        <span class="material-icons">person</span>
+        <p class="" (click)="signOut()">Sign Out</p>
+      </a>
+    </div>
+  </ng-container>
+
+  <ng-template #notAuthenticated>
+    <div class="nav-links">
+      <a routerLink="/auth/login" class="nav-link">
+        <span class="material-icons">person</span>
+        <p class="">Sign In</p>
+      </a>
+
+      <a routerLink="/auth/register" class="nav-link">
+        <span class="material-icons">person</span>
+        <p class="">Register</p>
+      </a>
+
+
+    </div>
+
+  </ng-template>
+
+
 
   <!-- <div class="search-cont">
     <div class="w-10 h-10 bg-gray-400"></div>

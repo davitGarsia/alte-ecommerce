@@ -1,1 +1,20 @@
-<p>product-card works!</p>
+<div *ngIf="product"
+  class="container w-64 h-72 border-2 border-solid rounded border-gray-400"
+>
+  <!--<img
+    class="w-44 h-44 rounded mb-5"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeLae7ebXhqsA7vzkmguB7-_C6TU3TH7X5N0XTkaUHKWAzIFPuknxQxv55jOJoGyd1BVM&usqp=CAU"
+  />-->
+  <img
+    class="w-44 h-44 rounded mb-5"
+    [src]="product.image"
+    alt=""
+  />
+  <p class="text-blue-600 text-xl">{{product.name}}</p>
+  <p class="text-blue-600 text-xl text-center">{{product.price | currency:'USD':true}}</p>
+  <button *appAuthAccess
+    class="bg-blue-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  >
+    Add to bag
+  </button>
+</div>
