@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CartService} from "../../core/services";
+import {CartService, OrderService} from "../../core/services";
 import {Cart} from "../../core/interfaces/cart";
 import {Observable} from "rxjs";
 
@@ -13,7 +13,8 @@ export class CartComponent implements OnInit {
   cartItems: Cart[] = [];
   cartSum = 0;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService,
+              private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.getCarts();
@@ -37,7 +38,11 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
-
+this.orderService.createOrder()
+  .pipe()
+  .subscribe(res => {
+    this.getCarts();
+  })
   }
 
 }

@@ -1,19 +1,17 @@
 <nav class="navbar">
-  <div class="logo-container flex gap-80">
-    <a href="#" class="flex logo-link">
+  <div class="logo-container flex gap-20">
+    <a routerLink="/" class="flex logo-link">
       <img class="logo" src="assets/clothing-logo.png" alt="" />
       <p class="text-3xl">Shopify</p>
     </a>
-  </div>
 
-  <ng-container *ngIf="userIsAuthenticated; else notAuthenticated">
     <div class="nav-links">
-    <a class="nav-link">
+    <a class="nav-link items-center">
       <span class="material-icons">dataset</span>
       <p class="">Products</p>
     </a>
 
-    <a routerLink="/cart" class="nav-link">
+    <a routerLink="/cart" class="nav-link items-center">
       <span class="material-icons">shopping_bag</span>
       <div class="flex">
         <p class="">Shopping Bag</p>
@@ -24,6 +22,22 @@
         </div>
       </div>
     </a>
+    </div>
+  </div>
+
+  <ng-container *ngIf="userIsAuthenticated; else notAuthenticated">
+    <div class="nav-links">
+
+      <a routerLink="/manager" class="nav-link">
+        <span class="material-icons">difference</span>
+        <p class="">Content Manager</p>
+      </a>
+
+      <a routerLink="/manager" class="nav-link">
+        <span class="material-icons">grading</span>
+        <p class="">Orders</p>
+      </a>
+
 
       <a routerLink="/auth/login" class="nav-link">
         <span class="material-icons">person</span>
