@@ -1,1 +1,28 @@
-<p>products works!</p>
+<div>
+  <button routerLink="/manager/products/create" class="" >Add</button>
+</div>
+
+<table class="table-auto">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Category</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of products">
+    <td>
+      <img [src]="item.image" alt="">
+    </td>
+    <td>{{item?.name}}</td>
+    <td>{{item?.price | currency: 'USD'}}</td>
+    <td>{{item?.category?.name}}</td>
+    <td>
+      <button class="bg-green-500-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" [routerLink]="['/manager/products/edit', item.id]" >Edit</button>
+      <button class="bg-green-500-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="deleteItem(item.id)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

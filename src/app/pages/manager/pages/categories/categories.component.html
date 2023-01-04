@@ -16,8 +16,8 @@
     <td>{{item?.name}}</td>
 
     <td>
-      <button class="" [routerLink]="['/manager/categories/edit', item.id]" >Edit</button>
-      <button class="" (click)="deleteItem(item.id)" >Remove</button>
+      <button class="bg-green-500-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" [routerLink]="['/manager/categories/edit', item.id]" >Edit</button>
+      <button class="bg-green-500-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="deleteItem(item.id)">Remove</button>
     </td>
   </tr>
   </tbody>
