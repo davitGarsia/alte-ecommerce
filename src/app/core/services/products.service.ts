@@ -13,7 +13,7 @@ export class ProductsService extends BaseService{
     limit?: number,
     search?: string,
   }): Observable<Product[]> {
-    return this.get<Product[]>('products', params);
+    return this.get<Product[]>('product', params);
   }
 
   getOne(id: string): Observable<Product> {

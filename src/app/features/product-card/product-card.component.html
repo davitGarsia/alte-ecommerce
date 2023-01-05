@@ -1,4 +1,4 @@
-<div *ngIf="product"
+<div *ngIf="product" [routerLink]="['/products', product.id]"
   class="container w-64 h-72 border-2 border-solid rounded border-gray-400"
 >
   <!--<img
@@ -14,7 +14,7 @@
   <p class="text-blue-600 text-xl text-center">{{product.price | currency:'USD':true}}</p>
   <button *appAuthAccess
     class="bg-blue-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          (click)="addToCart()"
+          (click)="addToCart($event)"
   >
     Add to bag
   </button>
