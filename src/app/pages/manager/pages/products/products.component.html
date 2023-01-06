@@ -1,28 +1,47 @@
 <div>
-  <button routerLink="/manager/products/create" class="" >Add</button>
+  <button
+    routerLink="/manager/products/create"
+    class="bg-green-700 ml-20 hover:bg-green-700 text-white font-bold py-2 px-4 rounded btn"
+  >
+    Add
+  </button>
 </div>
 
-<table class="table-auto">
+<table class="table-auto ml-24 mt-20">
   <thead>
-  <tr>
-    <th>#</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Category</th>
-  </tr>
+    <tr class="mr-20">
+      <th></th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let item of products">
-    <td>
-      <img [src]="item.image" alt="">
-    </td>
-    <td>{{item?.name}}</td>
-    <td>{{item?.price | currency: 'USD'}}</td>
-    <td>{{item?.category?.name}}</td>
-    <td>
-      <button class="bg-green-500-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" [routerLink]="['/manager/products/edit', item.id]" >Edit</button>
-      <button class="bg-green-500-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="deleteItem(item.id)">Remove</button>
-    </td>
-  </tr>
+    <tr *ngFor="let item of products">
+      <td>
+        <img
+          [src]="item.image"
+          alt=""
+          class="mt-5 w-44 h-40 rounded mb-10 mr-5"
+        />
+      </td>
+      <td>{{ item?.name }}</td>
+      <td>{{ item?.price | currency : "USD" }}</td>
+      <td>{{ item?.category?.name }}</td>
+      <td>
+        <button
+          class="bg-green-600 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3"
+          [routerLink]="['/manager/products/edit', item.id]"
+        >
+          Edit
+        </button>
+        <button
+          class="bg-green-600 ml-20 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          (click)="deleteItem(item.id)"
+        >
+          Remove
+        </button>
+      </td>
+    </tr>
   </tbody>
 </table>

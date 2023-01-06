@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 export class CategoryService extends BaseService{
 
   getAll(): Observable<Category[]> {
-    return this.get<Category[]>('/category');
+    return this.get<Category[]>('category');
   }
   getOne(id: number): Observable<Category> {
     return this.get<Category>(`category/${id}`);

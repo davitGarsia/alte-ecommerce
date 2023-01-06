@@ -1,0 +1,30 @@
+<div class="flex gap-5">
+  <div class="flex flex-row mt-14 ml-10">
+    <ul
+      class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200"
+    >
+      <li [routerLink]="['/products']"
+          class="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600 cursor-pointer"
+      >
+        All
+      </li>
+      <li
+        *ngFor="let category of categories$ | async"
+        [routerLink]="['/products']"
+        [queryParams]="{category: category.id}"
+        routerLinkActive="bg-blue-600"
+        class="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600 cursor-pointer"
+      >
+        {{category.name}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div>
+  <div></div>
+
+  <div>
+    <app-product-card *ngFor="let product of products"></app-product-card>
+  </div>
+</div>
