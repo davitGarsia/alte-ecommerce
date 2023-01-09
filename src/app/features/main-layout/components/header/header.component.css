@@ -5,8 +5,11 @@
   width: 100%;
   height: 80px;
   background-color: #ffa94d;
-
   position: relative;
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .logo {
@@ -20,7 +23,6 @@
   position: absolute;
   left: 2%;
   top: 5%;
-
 }
 
 .nav-links {

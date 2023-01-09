@@ -1,24 +1,34 @@
 <div>
-  <button routerLink="/manager/categories/create" class="" >Add</button>
+  <button routerLink="/manager/categories/create" class="">Add</button>
 </div>
 
-<table class="table-auto">
+<table class="table-auto ml-10">
   <thead>
-  <tr>
-    <th>#</th>
-    <th>Name</th>
-    <th></th>
-  </tr>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let item of categories">
-    <td>{{item?.id}}</td>
-    <td>{{item?.name}}</td>
+    <tr *ngFor="let item of categories">
+      <td class="mb-5 text-blue-900 font-bold">{{ item?.id }}.</td>
+      <td class="text-blue-900 font-bold">{{ item?.name }}</td>
 
-    <td>
-      <button class="bg-green-500-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" [routerLink]="['/manager/categories/edit', item.id]" >Edit</button>
-      <button class="bg-green-500-500 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="deleteItem(item.id)">Remove</button>
-    </td>
-  </tr>
+      <td>
+        <button
+          class="bg-blue-500 ml-20 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded mt-5 mb-5"
+          [routerLink]="['/manager/categories/edit', item.id]"
+        >
+          Edit
+        </button>
+        <button
+          class="bg-blue-500 ml-20 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded mb-5"
+          (click)="deleteItem(item.id)"
+        >
+          Remove
+        </button>
+      </td>
+    </tr>
   </tbody>
 </table>

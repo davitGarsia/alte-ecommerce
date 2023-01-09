@@ -1,37 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import {Category, Product} from "../../../../core/interfaces";
-import {CategoryService} from "../../../../core/services/category.service";
-import {ProductsService} from "../../../../core/services";
+import { Category, Product } from '../../../../core/interfaces';
+import { CategoryService } from '../../../../core/services/category.service';
+import { ProductsService } from '../../../../core/services';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-
   products: Product[] = [];
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.getAll();
   }
 
   getAll() {
-
-    this.productsService.getProducts({})
+    this.productsService
+      .getProducts({})
       .pipe()
-      .subscribe(res => {
+      .subscribe((res) => {
         this.products = res;
-      })
+      });
   }
 
   deleteItem(id: string) {
-    this.productsService.deleteItem(id)
+    this.productsService
+      .deleteItem(id)
       .pipe()
-      .subscribe(res => {
-        this.getAll()
-      })
+      .subscribe((res) => {
+        this.getAll();
+      });
   }
 }

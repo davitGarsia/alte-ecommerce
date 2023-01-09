@@ -3,28 +3,34 @@
     <ul
       class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200"
     >
-      <li [routerLink]="['/products']"
-          class="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600 cursor-pointer"
+      <li
+        [routerLink]="['/products']"
+        class="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600 cursor-pointer"
       >
         All
       </li>
       <li
         *ngFor="let category of categories$ | async"
         [routerLink]="['/products']"
-        [queryParams]="{category: category.id}"
+        [queryParams]="{ category: category.id }"
         routerLinkActive="bg-blue-600"
         class="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600 cursor-pointer"
       >
-        {{category.name}}
+        {{ category.name }}
       </li>
     </ul>
   </div>
-</div>
 
-<div>
-  <div></div>
-
-  <div>
+  <div class="">
+    <div class="mb-6">
+      <input
+        type="text"
+        class="block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        placeholder="Search Product"
+      />
+    </div>
+  </div>
+  <div class="flex">
     <app-product-card *ngFor="let product of products"></app-product-card>
   </div>
 </div>

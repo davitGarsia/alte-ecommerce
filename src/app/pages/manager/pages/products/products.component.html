@@ -25,18 +25,18 @@
           class="mt-5 w-44 h-40 rounded mb-10 mr-5"
         />
       </td>
-      <td>{{ item?.name }}</td>
-      <td>{{ item?.price | currency : "USD" }}</td>
-      <td>{{ item?.category?.name }}</td>
+      <td class="text-black font-bold">{{ item?.name }}</td>
+      <td class="text-black font-bold">{{ item?.price | currency : "USD" }}</td>
+      <td class="text-black font-bold">{{ item?.category?.name }}</td>
       <td>
         <button
-          class="bg-green-600 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3"
+          class="bg-blue-600 ml-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3"
           [routerLink]="['/manager/products/edit', item.id]"
         >
           Edit
         </button>
         <button
-          class="bg-green-600 ml-20 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          class="bg-blue-600 ml-20 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           (click)="deleteItem(item.id)"
         >
           Remove
